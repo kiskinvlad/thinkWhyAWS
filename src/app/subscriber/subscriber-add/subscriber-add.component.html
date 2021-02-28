@@ -1,0 +1,17 @@
+<form [formGroup]="form" (submit)="addSubscriber()" class="d-flex flex-column">
+  <label>
+    Email:
+    <input name="email" type="text" formControlName="email"/>
+  </label>
+  <label>
+    First Name:
+    <input name="firstName" type="text" formControlName="firstName"/>
+  </label>
+  <label>
+    Last Name:
+    <input name="lastName" type="text" formControlName="lastName"/>
+  </label>
+
+  <button type="submit" [disabled]="form.invalid">Save</button>
+  <button type="button" (click)="closeForm()">Cancel</button>
+</form>

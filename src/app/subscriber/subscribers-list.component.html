@@ -1,0 +1,36 @@
+<div *ngIf="!isLoading; else loading">
+  <div class="d-flex justify-around">
+    <section class="subscribers-list-wrapper">
+      <h3>Subscribers list</h3>
+      <ul class="p-0" *ngIf="subscribers?.length; else noItems">
+        <li *ngFor="let subscriber of subscribers">
+          <span (click)="selectedSubscriber = subscriber">{{subscriber.email}}</span>
+        </li>
+      </ul>
+    </section>
+    <section class="subscriber-details" *ngIf="selectedSubscriber">
+      <h3>Selected subscriber data</h3>
+      <app-subscriber-details [subscriber]="selectedSubscriber"></app-subscriber-details>
+    </section>
+  </div>
+
+  <div class="d-flex justify-around">
+    <button (click)="showForm = true">Add New Contact</button>
+  </div>
+
+  <div *ngIf="showForm">
+    <app-subscriber-add (onClose)="showForm = false" (onCreated)="onSubscriberCreated($event)"></app-subscriber-add>
+  </div>
+</div>
+
+<ng-template #noItems>
+  <div class="d-flex justify-around">
+    <h3>Items not exist</h3>
+  </div>
+</ng-template>
+
+<ng-template #loading>
+  <div class="d-flex justify-around">
+    <h3>Loading...</h3>
+  </div>
+</ng-template>

@@ -1,0 +1,41 @@
+const express = require('express');
+const router = express.Router();
+const AWS = require('aws-sdk');
+
+const tableName = 'dynamo545da9fd-dev';
+AWS.config.update({region:'eu-central-1'});
+
+const docClient = new AWS.DynamoDB.DocumentClient();
+
+
+function id () {
+  return Math.random().toString(36).substring(2) + Date.now().toString(36);
+}
+
+router.get('/', function(req, res) {
+  const params = {
+    TableName: tableName
+  };
+  docClient.scan(params, function(err, data) {
+    if (err) res.json({err});
+    else res.json({ ...data })
+  })
+});
+
+router.post('/', function(req, res) {
+  const params = {
+    TableName : tableName,
+    Item: {
+      recordID: id(),
+      email: req.body.email,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName
+    }
+  };
+  docClient.put(params, function(err, data) {
+    if (err) res.json({ err });
+    else res.json({ ...params.Item })
+  })
+});
+
+module.exports = router;

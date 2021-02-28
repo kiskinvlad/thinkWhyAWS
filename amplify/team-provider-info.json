@@ -1,0 +1,29 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-thinkwhy-dev-50340-authRole",
+            "UnauthRoleArn": "arn:aws:iam::893042140440:role/amplify-thinkwhy-dev-50340-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::893042140440:role/amplify-thinkwhy-dev-50340-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "amplify-thinkwhy-dev-50340-deployment",
+            "UnauthRoleName": "amplify-thinkwhy-dev-50340-unauthRole",
+            "StackName": "amplify-thinkwhy-dev-50340",
+            "StackId": "arn:aws:cloudformation:eu-central-1:893042140440:stack/amplify-thinkwhy-dev-50340/905de4f0-7971-11eb-aa7e-06821c515976",
+            "AmplifyAppId": "d8v313sbfli08"
+        },
+        "categories": {
+            "function": {
+                "thinkwhyfe454cca": {
+                    "deploymentBucketName": "amplify-thinkwhy-dev-50340-deployment",
+                    "s3Key": "amplify-builds/thinkwhyfe454cca-645767797a494d4f4559-build.zip"
+                }
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d8v313sbfli08",
+                    "type": "manual"
+                }
+            }
+        }
+    }
+}
